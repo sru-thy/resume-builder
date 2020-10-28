@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link href="../css/primer.css" rel="stylesheet" />
+</head>
+
+<body style="height: 100%;">
+    <div id='mainCard'
+        style="text-align:center; min-width:50px; max-width:1000px; height:100%; position:relative;  margin: 0 auto; background-color:white;  border:2px; border-style:solid; border-color:white;">
+        <br>
+        <h1>Admin Panel Login</h1>
+        <label id='warning'></label>
+        <% if (message != undefined) { %>
+            <h4> <%= message %> </h4>
+           <% } %>
+        <div id='loginSection'>
+            <form style="min-width:50px; max-width:300px; margin: auto;" action="/login" method="POST" onsubmit="return checkLogin()">
+                <input
+                    class="form-control input-lg input-block input-hide-webkit-autofill"
+                    placeholder="E-mail"
+                    id='username_login'
+                    type="text"
+                    aria-label="Username"
+                    name="username"
+                    style="font-size: x-large; padding:10px;"
+                />
+                <input
+                    class="form-control input-lg input-block input-hide-webkit-autofill"
+                    style="margin-top: 10px; font-size: x-large; padding:10px;"
+                    placeholder="Password"
+                    id='password_login'
+                    type="password"
+                    aria-label="Password"
+                    name="password"
+                />
+                <br>
+                <button id='loginSubmit' type='submit' style='width:230px; font-size:x-large; padding:10px; margin-top:10px;' class="btn btn-outline">
+                    Log In
+                </button>    
+            </form>
+        </div>
+        <br>
+    </div>
+    <script>
+
+        function checkLogin(){
+            const username = document.getElementById('username_login')
+            const password = document.getElementById('password_login')
+            if(username.value=='' || password.value==''){
+                const label = document.getElementById('warning')
+                label.innerHTML = 'Enter proper details'
+                setTimeout(()=>{
+                    label.innerHTML = ''
+                },1000)
+                return false
+            }else{
+                return true
+            }
+        }
+
+    </script>
+</body>
+
+</html>
