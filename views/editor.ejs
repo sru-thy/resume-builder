@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <script src="/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>   
+</head>
+<body style="height: 100%;">
+    <h1>Use this template !!!</h1><br>
+    <h1>Translate</h1><br>
+    <div id="editor">
+        <p>This is some sample content</p>
+        <% if(resume){
+        resume.forEach((post) => { %> 
+        <%- post.file.data %> 
+        <% })};%>
+    </div>
+    <br>
+    <button id="submit">Submit</button>
+    <script type="text/javascript">
+        let editor;
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(newEditor => {
+                editor = newEditor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        document.querySelector('#submit').addEventListener('click', () => {
+            const editorData = editor.getData();
+            html2pdf(editorData);
+        });
+    </script>
+</body>
+</html>

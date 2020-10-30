@@ -1,3 +1,4 @@
+// checking if an admin is already logged in
 exports.loggedin = (req, res, next) => {
     if (req.isAuthenticated()) {
       if (req.user.admin) {
@@ -7,12 +8,7 @@ exports.loggedin = (req, res, next) => {
     next()
 };
 
-exports.adminAuth = (req, res, next) => {
-  if (req.user.admin) 
-  return next();
-  res.status(401).end();
-};
-
+// checking if a user is an admin
 exports.notloggedin = (req, res, next) => {
     if (req.isAuthenticated()) {
     return next()

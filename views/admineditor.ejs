@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <title>Edit</title>
+</head>
+
+<body>
+    <h1>Edit a Resume !!</h1>
+    <div>
+        <form action="/editor" method="POST">
+            Search By Tags
+            <input type="text" placeholder="enter tag" id="name" name="tag" required><br>
+            <div><br>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <form action="/editor2" method='POST'>
+    <textarea name="content" id="editor">
+        <p>This is some sample content</p>
+        <% if(resume){
+        resume.forEach((post) => { %> 
+        <%- post.file.data %> 
+        <% })};%>
+    </textarea>
+    <br>
+    <button type="submit">Save</button>
+    </form>
+
+    <script type="text/javascript">
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+
+</html>
