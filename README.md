@@ -28,4 +28,5 @@ Server starts on the port [http://localhost:5005](http://localhost:5005)
 <ul>
 <li>Translate to multiple languages</li>
 <li>Process voice inputs</li>
+<li>UI/UX</li>
 </ul>
