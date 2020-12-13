@@ -10,7 +10,7 @@
 
 Download or Clone the project, ``` cd resume-builder ```
 
-then install all the required dev and dependencies by running
+then install all the required dependencies by running
 
 ```
 npm install
