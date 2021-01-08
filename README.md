@@ -2,7 +2,7 @@
 
 ## Features
 <ul>
-<li>Admin can Upload/Edit resume Templates labeling it to a specific profession</li>
+<li>Admin can upload and edit resume templates labeling it to a specific profession</li>
 <li>Users can edit and download a resume recommended to them based on the input they give </li>
 </ul>
 
